@@ -36,7 +36,7 @@ export function App() {
   })
 
   useEffect(() => {
-     document.documentElement.style.overflowX = 'hidden'
+    document.documentElement.style.overflowX = 'hidden'
     document.body.style.overflowX = 'hidden'
     
     return () => {
@@ -47,17 +47,17 @@ export function App() {
   }, [])
 
   return (
-    <div className="app h-screen w-screen bg-[url(./hero-bg.jpg)] bg-center bg-no-repeat bg-cover px-[80px] py-[40px] relative">
+    <div className="app h-screen w-screen bg-[url('/Some-test-with-Visual-effects/hero-bg.jpg')] bg-center bg-no-repeat bg-cover px-[80px] py-[40px] relative">
       
       <div 
-        className="rectangle bg-[url(./Rectangle.png)] bg-center bg-no-repeat bg-cover absolute" 
+        className="rectangle bg-[url('/Some-test-with-Visual-effects/Rectangle.png')] bg-center bg-no-repeat bg-cover absolute" 
         style={{
           width: 'calc(100% - 160px)', 
           height: '57%', 
           top: '15%', 
           left: '80px',
-          maskImage: 'url(./Group.svg)', 
-          WebkitMaskImage: 'url(./Group.svg)', 
+          maskImage: 'url(/Some-test-with-Visual-effects/Group.svg)', 
+          WebkitMaskImage: 'url(/Some-test-with-Visual-effects/Group.svg)', 
           maskSize: 'cover', 
           WebkitMaskSize: 'cover', 
           maskPosition: 'center', 
@@ -70,14 +70,14 @@ export function App() {
       />
 
       <div
-        className="vector vector1-idle absolute bg-[url(./Group.svg)] bg-center bg-no-repeat bg-cover"
+        className="vector vector1-idle absolute bg-[url('/Some-test-with-Visual-effects/Group.svg')] bg-center bg-no-repeat bg-cover"
         style={{
           width: 'calc(100% - 160px)', 
           height: '57%', 
           top: '21.5%',
           left: '80px',
-          maskImage: 'url(./Group.svg)', 
-          WebkitMaskImage: 'url(./Group.svg)', 
+          maskImage: 'url(/Some-test-with-Visual-effects/Group.svg)', 
+          WebkitMaskImage: 'url(/Some-test-with-Visual-effects/Group.svg)', 
           maskSize: 'cover', 
           WebkitMaskSize: 'cover', 
           maskPosition: 'center', 
@@ -90,14 +90,14 @@ export function App() {
         }}
       />
       <div
-        className="vector vector2-idle absolute bg-[url(./Group.svg)] bg-center bg-no-repeat bg-cover"
+        className="vector vector2-idle absolute bg-[url('/Some-test-with-Visual-effects/Group.svg')] bg-center bg-no-repeat bg-cover"
         style={{
           width: 'calc(100% - 160px)', 
           height: '57%', 
           top: '21.5%',
           left: '80px',
-          maskImage: 'url(./Group.svg)', 
-          WebkitMaskImage: 'url(./Group.svg)', 
+          maskImage: 'url(/Some-test-with-Visual-effects/Group.svg)', 
+          WebkitMaskImage: 'url(/Some-test-with-Visual-effects/Group.svg)', 
           maskSize: 'cover', 
           WebkitMaskSize: 'cover', 
           maskPosition: 'center', 

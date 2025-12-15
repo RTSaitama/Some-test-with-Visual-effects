@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react"
+ import { useState, useRef, useEffect } from "react"
 
 function ScrambleText({ text, isHovered }: { text: string; isHovered: boolean }) {
   const [displayText, setDisplayText] = useState<string>(text)
@@ -10,7 +10,6 @@ function ScrambleText({ text, isHovered }: { text: string; isHovered: boolean })
 
   useEffect(() => {
     if (!isHovered) {
-      // Відкладений виклик setState, щоб уникнути синхронного оновлення у useEffect
       const timeout = setTimeout(() => {
         setDisplayText(text)
       }, 0)
@@ -128,7 +127,7 @@ export const Header: React.FC = () => {
   return (
     <header className="header flex justify-between items-center w-full px-4 md:px-8 lg:px-[80px] py-4 md:py-6 relative z-50">
       <div className="logo__wrapp w-[100px] md:w-[156px] h-[16px] md:h-[22px] flex-shrink-0">
-        <img src="./Logo.svg" alt="logo_img" className="w-full h-full" />
+        <img src="/Some-test-with-Visual-effects/Logo.svg" alt="logo_img" className="w-full h-full" />
       </div>
 
        <nav className="hidden md:block nav__wrapp text-[#717072] flex-1">
