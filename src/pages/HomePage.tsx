@@ -36,7 +36,7 @@ export function HomePage() {
           style={{
             lineHeight: '105%',
           }}
-          className="hero__title text-[84px] max-w-[914px] text-white text-center  mb-[36px]"
+          className="hero__title text-[4rem] max-w-[914px] text-white text-center  mb-[36px]"
         >
           Building the future of medicine with AI
         </h1>
