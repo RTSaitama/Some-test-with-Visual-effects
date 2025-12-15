@@ -1,121 +1,57 @@
- 
-import { useGSAP } from '@gsap/react'
+import { useGSAP } from "@gsap/react"
+import { ArrowDownBtn } from "../components/ArrowDownBtn"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useRef, useEffect } from "react"
 import { StartTodayBtn } from "../components/StartTodayBtn"
- import { ArrowDownBtn } from "../components/ArrowDownBtn"
-gsap.registerPlugin(ScrollTrigger, useGSAP)
+
+gsap.registerPlugin(ScrollTrigger)
 
 export function HomePage() {
-  const animationRef = useRef<gsap.core.Tween[]>([])
 
   useGSAP(() => {
-    animationRef.current.forEach(anim => anim.kill())
-    animationRef.current = []
-
-    const vectors = [
-      { selector: '.vector1-idle', x: 20, y: -15, duration: 6 },
-      { selector: '.vector2-idle', x: -25, y: 10, duration: 6.5 }
-    ]
-
-    vectors.forEach(({ selector, x, y, duration }) => {
-      const anim = gsap.to(selector, {
-        x,
-        y,
-        duration,
-        ease: 'none', 
-        repeat: -1,
-        yoyo: true,
-        force3D: true,
-        willChange: 'transform',
-        lazy: false
-      })
-      animationRef.current.push(anim)
+    gsap.set(".hero__title", {
+      y: -50,
     })
-  })
 
-  useEffect(() => {
-    document.documentElement.style.overflowX = 'hidden'
-    document.body.style.overflowX = 'hidden'
-    
-    return () => {
-      animationRef.current.forEach(anim => anim.kill())
-      document.documentElement.style.overflowX = ''
-      document.body.style.overflowX = ''
-    }
+    gsap.to(".hero__title", {
+      y: 200,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero__btn__arrow",
+        start: "top bottom",
+        end: "top top",
+        scrub: 1,
+        invalidateOnRefresh: true,
+      },
+    })
   }, [])
 
   return (
-    <div className="app h-screen w-screen bg-[url(/Some-test-with-Visual-effects/hero-bg.jpg)] bg-center bg-no-repeat bg-cover px-[80px] py-[40px] relative">
-      <div 
-        className="rectangle bg-[url(/Some-test-with-Visual-effects/Rectangle.png)] bg-center bg-no-repeat bg-cover absolute" 
-        style={{
-          width: 'calc(100% - 160px)', 
-          height: '57%', 
-          top: '15%', 
-          left: '80px',
-          maskImage: 'url(/Some-test-with-Visual-effects/Group.svg)', 
-          WebkitMaskImage: 'url(/Some-test-with-Visual-effects/Group.svg)', 
-          maskSize: 'cover', 
-          WebkitMaskSize: 'cover', 
-          maskPosition: 'center', 
-          WebkitMaskPosition: 'center', 
-          maskRepeat: 'no-repeat', 
-          WebkitMaskRepeat: 'no-repeat',
-          transform: 'translateZ(0)',
-          backfaceVisibility: 'hidden'
-        }}
-      />
-
-      <div
-        className="vector vector1-idle absolute bg-[url(/Some-test-with-Visual-effects/Group.svg)] bg-center bg-no-repeat bg-cover"
-        style={{
-          width: 'calc(100% - 160px)', 
-          height: '57%', 
-          top: '21.5%',
-          left: '80px',
-          maskImage: 'url(/Some-test-with-Visual-effects/Group.svg)', 
-          WebkitMaskImage: 'url(/Some-test-with-Visual-effects/Group.svg)', 
-          maskSize: 'cover', 
-          WebkitMaskSize: 'cover', 
-          maskPosition: 'center', 
-          WebkitMaskPosition: 'center', 
-          maskRepeat: 'no-repeat', 
-          WebkitMaskRepeat: 'no-repeat',
-          transform: 'translateZ(0)',
-          backfaceVisibility: 'hidden',
-          contain: 'layout style paint'
-        }}
-      />
-      <div
-        className="vector vector2-idle absolute bg-[url(/Some-test-with-Visual-effects/Group.svg)] bg-center bg-no-repeat bg-cover"
-        style={{
-          width: 'calc(100% - 160px)', 
-          height: '57%', 
-          top: '21.5%',
-          left: '80px',
-          maskImage: 'url(/Some-test-with-Visual-effects/Group.svg)', 
-          WebkitMaskImage: 'url(/Some-test-with-Visual-effects/Group.svg)', 
-          maskSize: 'cover', 
-          WebkitMaskSize: 'cover', 
-          maskPosition: 'center', 
-          WebkitMaskPosition: 'center', 
-          maskRepeat: 'no-repeat', 
-          WebkitMaskRepeat: 'no-repeat',
-          transform: 'translateZ(0)',
-          backfaceVisibility: 'hidden',
-          contain: 'layout style paint'
-        }}
-      />
- 
-      <div className="hero__content absolute bottom-[138px] w-full flex flex-col items-center justify-center gap-[7px]">
-        <StartTodayBtn />
-        <ArrowDownBtn />
-        <h1 className="hero__title text-[4rem] max-w-[914px] text-white text-center mb-[36px]" style={{ lineHeight: '105%' }}>
+    <>
+      <div className="hero__screen min-h-screen relative z-10">
+        <div className="hero__titleContent-wrapp gap-[7px] absolute bottom-[138px]   w-full flex flex-col items-center justify-center">
+    <StartTodayBtn /> 
+        
+        <h1
+          style={{
+            lineHeight: '105%',
+          }}
+          className="hero__title text-[4rem] max-w-[914px] text-white text-center  mb-[36px]"
+        >
           Building the future of medicine with AI
         </h1>
-      </div>
-    </div>
+        <ArrowDownBtn />
+</div>
+      </div >
+
+      <section className="section-2 h-screen bg-black relative z-20 overflow-hidden flex items-center justify-center">
+        <h2 className="text-white text-4xl"> 2</h2>
+      </section>
+
+      <section className="h-screen bg-black flex items-center justify-center">
+        <h2 className="text-white text-4xl"> 3</h2>
+      </section>
+    </>
   )
 }
