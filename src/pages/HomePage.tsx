@@ -1,4 +1,4 @@
- import { Header } from "../components/Header"
+ 
 import { useGSAP } from '@gsap/react'
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -108,8 +108,7 @@ export function HomePage() {
           contain: 'layout style paint'
         }}
       />
-
-      <Header />
+ 
       <div className="hero__content absolute bottom-[138px] w-full flex flex-col items-center justify-center gap-[7px]">
         <StartTodayBtn />
         <ArrowDownBtn />
