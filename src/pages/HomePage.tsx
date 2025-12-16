@@ -9,8 +9,23 @@ gsap.registerPlugin(ScrollTrigger)
 export function HomePage() {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const section2Ref = useRef<HTMLDivElement | null>(null)
+  const titleRef = useRef<HTMLHeadingElement | null>(null)
+  
   useEffect(() => {
     const ctx = gsap.context(() => {
+      if (titleRef.current) {
+        gsap.to(titleRef.current, {
+          clipPath: 'inset(0 0 100% 0)',
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".hero__screen",
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
+          },
+        })
+      }
+
       gsap.set(".hero__title", { y: -50 })
       gsap.to(".hero__title", {
         y: 200,
@@ -45,6 +60,7 @@ export function HomePage() {
         <div className="hero__titleContent-wrapp gap-[7px] absolute bottom-[100px] w-full flex flex-col items-center justify-center">
           <StartTodayBtn />
           <h1
+            ref={titleRef}
             style={{ lineHeight: "105%" }}
             className="hero__title text-[4rem] lg:text-[84px] max-w-[914px] text-white text-center mb-[36px]"
           >

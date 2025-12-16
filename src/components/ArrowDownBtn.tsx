@@ -1,4 +1,3 @@
-// ArrowDownBtn.tsx
 export function ArrowDownBtn({ section2Ref }: { section2Ref: React.RefObject<HTMLDivElement | null> }) {
   const handleClick = () => {
     console.log('clicked', section2Ref.current)
