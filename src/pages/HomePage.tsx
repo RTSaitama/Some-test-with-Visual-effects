@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export function HomePage() {
   const containerRef = useRef<HTMLDivElement | null>(null)
-
+  const section2Ref = useRef<HTMLDivElement | null>(null)
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.set(".hero__title", { y: -50 })
@@ -22,6 +22,17 @@ export function HomePage() {
           scrub: 1,
           invalidateOnRefresh: true,
         },
+      })
+
+      gsap.to('.hero__btn__arrow', {
+        scrollTrigger: {
+          trigger: '.section-2',
+          start: 'top bottom',
+          end: 'top 80%',
+          scrub: true,
+        },
+        opacity: 0,
+        pointerEvents: 'none',
       })
     }, containerRef) 
 
@@ -39,11 +50,11 @@ export function HomePage() {
           >
             Building the future of medicine with AI
           </h1>
-          <ArrowDownBtn />
+          <ArrowDownBtn section2Ref={section2Ref}/>
         </div>
       </div>
 
-      <section className="section-2 h-screen bg-black relative z-20 overflow-hidden flex items-center justify-center">
+      <section ref={section2Ref}  className="section-2 h-screen bg-black relative z-20 overflow-hidden flex items-center justify-center">
         <h2 className="text-white text-4xl">2</h2>
       </section>
 

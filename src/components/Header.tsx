@@ -108,12 +108,12 @@ const NavItem: React.FC<NavItemProps> = ({ item }) => {
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
   const navItems: { label: string; path: string }[] = [
-    { label: "Solutions", path: "/solutions" },
-    { label: "Technology", path: "/technology" },
-    { label: "About", path: "/about" },
-    { label: "Careers", path: "/careers" },
-    { label: "Resources", path: "/resources" },
-    { label: "Contact", path: "/contact" },
+  { label: "Solutions", path: "#/solutions" },
+  { label: "Technology", path: "#/technology" },
+  { label: "About", path: "#/about" },
+  { label: "Careers", path: "#/careers" },
+  { label: "Resources", path: "#/resources" },
+  { label: "Contact", path: "#/contact" },
   ]
 
   useEffect(() => {

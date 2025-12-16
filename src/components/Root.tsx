@@ -6,8 +6,13 @@ import { NotFoundPage } from "../pages/NotFoundPage";
 export function Root() { 
 
 const mainRouteConfig: RouteConfig[] = [
-  { index: true, element: < HomePage/> },
-  { path: '', element: <HomePage/> },
+  { index: true, element: <HomePage/> },
+  { path: 'solutions', element: <HomePage/> },
+  { path: 'technology', element: <HomePage/> },
+  { path: 'about', element: <HomePage/> },
+  { path: 'careers', element: <HomePage/> },
+  { path: 'resources', element: <HomePage/> },
+  { path: 'contact', element: <HomePage/> },
   { path: '*', element: <NotFoundPage/>}
 ];
 return (

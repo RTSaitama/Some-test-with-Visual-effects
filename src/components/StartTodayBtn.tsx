@@ -2,7 +2,7 @@
   return (
     <div className="relative w-[320px] h-[80px] place-self-center">
       <button
-        className="w-full h-full bg-white bg-opacity-[5%] shadow-xs-white backdrop-blur-[4px]   
+        className="w-full h-full bg-white bg-opacity-[5%] transition-all duration-300 ease-in-out hover:backdrop-blur-[10px] shadow-xs-white backdrop-blur-[4px]   
           rounded-none overflow-hidden   
           [clip-path:polygon(20px_0,100%_0,100%_calc(100%-20px),calc(100%-20px)_100%,0_100%,0_20px)]
           border-none relative z-10 text-white font-bold text-xl">
